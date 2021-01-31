@@ -10,7 +10,7 @@ ANI-Cache provides a wrapper around [FastANI](https://github.com/ParBLiSS/FastAN
 
 ### Install via Conda
 
-ANI-Cache can be install via Conda using:
+[IN PROGRESS] ANI-Cache can be install via Conda using:
 ```
 >conda install -c bioconda ani_cache
 ```
