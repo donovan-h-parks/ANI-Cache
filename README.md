@@ -1,8 +1,6 @@
 # ANI-Cache
 [![License](https://img.shields.io/github/license/dparks1134/ANI-Cache)](https://img.shields.io/github/license/dparks1134/ANI-Cache)
 [![version status](https://img.shields.io/pypi/v/ani-cache.svg)](https://pypi.python.org/pypi/ani-cache)
-[![Downloads](https://pepy.tech/badge/ANI-Cache)](https://pepy.tech/project/ANI-Cache)
-[![Downloads](https://pepy.tech/badge/ANI-Cache/month)](https://pepy.tech/project/ANI-Cache/month)
 [![Github All Releases](https://img.shields.io/github/downloads/dparks1134/ANI-Cache/total.svg)]()
 [![Bioconda](https://img.shields.io/conda/vn/bioconda/ani-cache.svg?color=43b02a)](https://anaconda.org/bioconda/cache)
 
