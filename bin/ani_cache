@@ -1,0 +1,112 @@
+#! /usr/bin/env python3
+
+###############################################################################
+#                                                                             #
+#    This program is free software: you can redistribute it and/or modify     #
+#    it under the terms of the GNU General Public License as published by     #
+#    the Free Software Foundation, either version 3 of the License, or        #
+#    (at your option) any later version.                                      #
+#                                                                             #
+#    This program is distributed in the hope that it will be useful,          #
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of           #
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the            #
+#    GNU General Public License for more details.                             #
+#                                                                             #
+#    You should have received a copy of the GNU General Public License        #
+#    along with this program. If not, see <http://www.gnu.org/licenses/>.     #
+#                                                                             #
+###############################################################################
+
+__author__ = "Donovan Parks"
+__copyright__ = "Copyright 2021"
+__credits__ = ["Donovan Parks"]
+__license__ = "GPL3"
+__maintainer__ = "Donovan Parks"
+__email__ = "donovan.parks@gmail.com"
+__status__ = "Development"
+
+import sys
+import argparse
+
+from ani_cache import __version__
+from ani_cache.main import OptionsParser
+
+from ani_cache.logger import logger_setup, CustomHelpFormatter
+
+
+def print_help():
+    """Help message."""
+
+    print('')
+    print('                ...::: ANI-Cache v' + __version__ + ' :::...''')
+    print('''\
+
+  fastani -> Run FastANI and cache results
+  dump    -> Write ANI database to human-readable file
+
+  Use: ani_cache <command> -h for command specific help.
+
+  Feature requests or bug reports can be sent to Donovan Parks (donovan.parks@gmail.com)
+    or posted on GitHub (https://github.com/dparks1134/ani_cache).
+    ''')
+
+
+if __name__ == '__main__':
+
+    # initialize the options parser
+    parser = argparse.ArgumentParser(add_help=False)
+    subparsers = parser.add_subparsers(help="--", dest='subparser_name')
+
+    # run FastANI and cache results
+    fastani_parser = subparsers.add_parser('fastani',
+                                           formatter_class=CustomHelpFormatter,
+                                           description='Run FastANI and cache results.')
+    fastani_parser.add_argument('query_genomes', help="query genome files to process")
+    fastani_parser.add_argument('ref_genomes', help="genome files to process")
+    fastani_parser.add_argument('output_dir', help="output directory")
+    fastani_parser.add_argument('--ref_to_query', help="also compare reference to query genomes", action='store_true')
+    fastani_parser.add_argument('-x', '--file_ext', default='fna', help="extension of files to process")
+    fastani_parser.add_argument('--ani_db_file', help='filename of ANI database')
+    fastani_parser.add_argument('--initial_cache_check',
+                                help='perform initial check of cache for all requested ANI values', action='store_true')
+    fastani_parser.add_argument('--validate_genome_files',
+                                help='check that all genome files exist', action='store_true')
+    fastani_parser.add_argument('-c', '--cpus', help='number of CPUs to use', type=int, default=1)
+    fastani_parser.add_argument('--silent', help="suppress output", action='store_true')
+
+    # write ANI database to human-readable file
+    dump_parser = subparsers.add_parser('dump',
+                                        formatter_class=CustomHelpFormatter,
+                                        description='Write ANI database to human-readable file.')
+    dump_parser.add_argument('ani_db_file', help='filename of ANI database')
+    dump_parser.add_argument('output_file', help='output filename')
+    dump_parser.add_argument('--format', help='desired file format (CSV or TSV)', choices=['TSV', 'CSV'], default='TSV')
+    dump_parser.add_argument('--silent', help="suppress output", action='store_true')
+
+    # get and check options
+    args = None
+    if(len(sys.argv) == 1 or sys.argv[1] == '-h' or sys.argv == '--help'):
+        print_help()
+        sys.exit(0)
+    else:
+        args = parser.parse_args()
+
+    if not hasattr(args, 'output_dir'):
+        args.output_dir = None
+
+    logger_setup(args.output_dir,
+                 "ani_cache.log",
+                 "ANI-Cache",
+                 __version__,
+                 args.silent)
+
+    # do what we came here to do
+    try:
+        parser = OptionsParser()
+        parser.parse_options(args)
+    except SystemExit:
+        print("\nControlled exit resulting from an unrecoverable error.")
+        raise
+    except:
+        print("\nUnexpected error:", sys.exc_info()[0])
+        raise
