@@ -1,8 +1,8 @@
 # ANI-Cache
-[![version status](https://img.shields.io/pypi/v/ani-cache.svg)](https://pypi.python.org/pypi/cache)
-[![Downloads](https://pepy.tech/badge/cache)](https://pepy.tech/project/cache)
-[![Downloads](https://pepy.tech/badge/cache/month)](https://pepy.tech/project/cache/month)
-[![Bioconda](https://img.shields.io/conda/vn/bioconda/cache.svg?color=43b02a)](https://anaconda.org/bioconda/cache)
+[![version status](https://img.shields.io/pypi/v/ani-cache.svg)](https://pypi.python.org/pypi/ani-cache)
+[![Downloads](https://pepy.tech/badge/ani-cache)](https://pepy.tech/project/ani-cache)
+[![Downloads](https://pepy.tech/badge/ani-cache/month)](https://pepy.tech/project/ani-cache/month)
+[![Bioconda](https://img.shields.io/conda/vn/bioconda/ani-cache.svg?color=43b02a)](https://anaconda.org/bioconda/cache)
 
 ANI-Cache provides a wrapper around [FastANI](https://github.com/ParBLiSS/FastANI) which stores calculated ANI values to a SQLite database. This permits fast lookup of previously calculated values and sharing of precomputed ANI databases between researchers.  
 
