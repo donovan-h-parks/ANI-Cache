@@ -6,7 +6,9 @@
 [![Bioconda](https://img.shields.io/conda/vn/bioconda/ani-cache.svg?color=43b02a)](https://anaconda.org/bioconda/cache)
 
 
-ANI-Cache provides a wrapper around [FastANI](https://github.com/ParBLiSS/FastANI) which stores calculated ANI values to a SQLite database. This permits fast lookup of previously calculated values and sharing of precomputed ANI databases between researchers.  
+ANI-Cache provides a wrapper around [FastANI](https://github.com/ParBLiSS/FastANI) which stores calculated ANI values to a SQLite database. This permits fast lookup of previously calculated values and sharing of precomputed ANI databases between researchers.
+
+I recommend [pyani](https://github.com/widdowquinn/pyani) if you are interested in BLAST- or MUMMer-based ANI calculations. 
 
 ## Installation
 
