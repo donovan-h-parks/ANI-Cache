@@ -1,6 +1,6 @@
 import os
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 def version():
@@ -9,6 +9,11 @@ def version():
     setup_dir = os.path.dirname(os.path.realpath(__file__))
     version_file = open(os.path.join(setup_dir, 'ani_cache', 'VERSION'))
     return version_file.readline().strip()
+
+
+def readme():
+    with open('README.md') as f:
+        return f.read()
 
 
 setup(
@@ -28,11 +33,13 @@ setup(
         'Topic :: Scientific/Engineering :: Bio-Informatics',
     ],
     data_files=[("", ["LICENSE"])],
-    packages=['ani_cache', 'ani_cache.tests'],
+    packages=find_packages(),
     scripts=['bin/ani_cache'],
     package_data={'ani_cache': ['VERSION']},
     url='http://pypi.python.org/pypi/ani_cache/',
     license='GPL3',
     description='Cache-aware ANI calculations.',
+    long_description=readme(),
+    long_description_content_type='text/markdown',
     install_requires=[],
 )
