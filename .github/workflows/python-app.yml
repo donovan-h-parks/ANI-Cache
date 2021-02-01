@@ -36,6 +36,7 @@ jobs:
         # download FastANI and add to system PATH
         wget https://github.com/ParBLiSS/FastANI/releases/download/v1.32/fastANI-Linux64-v1.32.zip
         unzip fastANI-Linux64-v1.32.zip
+        ./fastANI
         export PATH=$PATH:$(pwd) 
     - name: Test with pytest
       run: |
