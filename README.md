@@ -1,7 +1,7 @@
 # ANI-Cache
 [![License](https://img.shields.io/github/license/dparks1134/ANI-Cache)](https://img.shields.io/github/license/dparks1134/ANI-Cache)
 [![version status](https://img.shields.io/pypi/v/ani-cache.svg)](https://pypi.python.org/pypi/ani-cache)
-[![pytesting Actions Status](https://github.com/dparks1134/ANI-Cache/workflows/pytesting/badge.svg)](https://github.com/dparks1134/ANI-Cache/workflows/pytesting/actions)
+[![Actions Status](https://github.com/dparks1134/ANI-Cache/workflows/pytesting/badge.svg)](https://github.com/dparks1134/ANI-Cache/workflows/pytesting/actions)
 [![Github All Releases](https://img.shields.io/github/downloads/dparks1134/ANI-Cache/total.svg)]()
 [![Bioconda](https://img.shields.io/conda/vn/bioconda/ani-cache.svg?color=43b02a)](https://anaconda.org/bioconda/cache)
 
