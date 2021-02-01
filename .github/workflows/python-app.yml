@@ -39,4 +39,5 @@ jobs:
         export PATH=$PATH:$(pwd) 
     - name: Test with pytest
       run: |
+        pip install -e .
         pytest
